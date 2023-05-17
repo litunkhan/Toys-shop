@@ -6,11 +6,39 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import './index.css'
+import Home from './pages/Home/Homes/Home.jsx';
+import Alltyos from './pages/Alltoys/Alltyos.jsx';
+import Mytoys from './pages/My toys/Mytoys.jsx';
+import Addtoys from './pages/Addtoys/Addtoys.jsx';
+import Blogs from './pages/Blog/Blogs.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
+    children:[
+      {
+        path:'/',
+        element:<Home></Home>
+
+      },
+      {
+         path:'/alltoys',
+         element:<Alltyos></Alltyos>
+      },
+      {
+        path:'/mytoys',
+        element:<Mytoys></Mytoys>
+      },
+      {
+        path:'/addtoys',
+        element:<Addtoys></Addtoys>
+      },
+      {
+        path:'/blogs',
+        element:<Blogs></Blogs>
+      }
+    ]
   },
 ]);
 
