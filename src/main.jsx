@@ -11,6 +11,7 @@ import Alltyos from './pages/Alltoys/Alltyos.jsx';
 import Mytoys from './pages/My toys/Mytoys.jsx';
 import Addtoys from './pages/Addtoys/Addtoys.jsx';
 import Blogs from './pages/Blog/Blogs.jsx';
+import Login from './pages/login/Login.jsx';
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,9 @@ const router = createBrowserRouter([
       {
         path:'/blogs',
         element:<Blogs></Blogs>
+      },{
+        path:'/login',
+        element:<Login></Login>
       }
     ]
   },
