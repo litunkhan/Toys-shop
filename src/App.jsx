@@ -8,7 +8,7 @@ const App = () => {
   return (
     <div className='max-w-[1200px] mx-auto'>
        <Navbar></Navbar>
-       <Outlet />
+       <div className='min-h-[56vh]'><Outlet /></div>
        <Footer></Footer>
     </div>
   );
