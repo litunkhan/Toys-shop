@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext, useState } from 'react';
 import { FaEnvelope, FaLock, FaGoogle } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate,useLocation} from 'react-router-dom';
 import Lottie from "lottie-react";
 import animation from '../../assets/143135-login-page-animation.json'
 import { AuthContext } from '../../Authprobijder/Authprobider';
@@ -10,6 +10,8 @@ const Login = () => {
   const {singIn,googleLogin } = useContext(AuthContext)
   const [err,seterr] = useState('')
   const navigate = useNavigate()
+  const location = useLocation()
+  const from = location.state?.from?.pathname || '/';
     const handleLogin = (e)=>{
       e.preventDefault()
       const form = e.target
@@ -20,7 +22,7 @@ const Login = () => {
       .then(res=>{
          console.log(res.user)
          form.reset()
-         navigate('/')
+         navigate(from,{replace:true})
   
       })
       .catch(err=>{
@@ -33,9 +35,9 @@ const Login = () => {
   
      const googlelogins =()=>{
         googleLogin()
-        .then((result) => {
-          
-          navigate('/')
+        .then((res) => {
+          console.log(res.user)
+          navigate(from,{replace:true})
         }).catch((error) => {
          console.log(error.message)
         })
