@@ -19,6 +19,7 @@ const Login = () => {
               <input
                 type="email"
                 placeholder="Email"
+                name='email'
                 className="w-full bg-transparent outline-none"
               />
             </div>
@@ -27,6 +28,7 @@ const Login = () => {
               <input
                 type="password"
                 placeholder="Password"
+                name='password'
                 className="w-full bg-transparent outline-none"
               />
             </div>
