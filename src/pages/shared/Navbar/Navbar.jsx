@@ -4,6 +4,7 @@ import { Link,NavLink } from 'react-router-dom';
 import { FaHome, FaCube, FaBook, FaPlus, FaUser} from 'react-icons/fa';
 import logo from '../../../assets/logo.jpg'
 import logo2 from '../../../assets/logo2.avif'
+import Tippy from '@tippyjs/react';
 import { AuthContext } from '../../../Authprobijder/Authprobider';
 const Navbar = () => {
  const {user,logOut } = useContext(AuthContext)
@@ -62,7 +63,8 @@ const Navbar = () => {
   <div className="navbar-end">
    {
     user? <div className='flex gap-1 items-center'>
-      <p>{user.displayName}</p>  <img className='w-9 rounded-xl' src={user.photoURL} alt="" /><FaUser></FaUser><p className='cursor-pointer' onClick={()=>logOut()}>LogOut</p></div>: 
+<Tippy content={user.displayName}><img className='w-9 rounded-xl cursor-pointer' src={user.photoURL} alt="" /></Tippy>
+<FaUser></FaUser><p className='cursor-pointer' onClick={()=>logOut()}>LogOut</p></div>: 
     <div className='flex gap-1 items-center'><FaUser></FaUser><Link to={'/login'}>Login</Link></div>
    }
   </div>
