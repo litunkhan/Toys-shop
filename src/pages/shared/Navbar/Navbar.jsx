@@ -25,11 +25,17 @@ const Navbar = () => {
           
           </li>
           </div>
-          <div className='flex gap-1 items-center'> <FaCube></FaCube> <li><NavLink to={'/mytoys'}>My-toys</NavLink></li></div>
+         {
+          user&&(
+            <>
+               <div className='flex gap-1 items-center'> <FaCube></FaCube> <li><NavLink to={'/mytoys'}>My-toys</NavLink></li></div>
           <div className='flex gap-1 items-center'>
             <FaPlus></FaPlus>
           <li><NavLink to={'/addtoys'}>Add-toys</NavLink></li>
           </div>
+            </>
+          )
+         }
 
           <div className='flex gap-1 items-center'>
             <FaBook></FaBook> <li><NavLink to={'/blogs'}>Blogs</NavLink></li></div> 
@@ -50,13 +56,22 @@ const Navbar = () => {
           
           </li>
           </div>
-        <div className='flex gap-1 items-center'> <FaCube></FaCube> <li><NavLink to={'/mytoys'}>My-toys</NavLink></li></div>
-         <div className='flex gap-1 items-center'>
+        
+        {
+          user&& (
+            <>
+            <div className='flex gap-1 items-center'> <FaCube></FaCube> <li><NavLink to={'/mytoys'}>My-toys</NavLink></li></div>
+             <div className='flex gap-1 items-center'>
             <FaPlus></FaPlus>
           <li><NavLink to={'/addtoys'}>Add-toys</NavLink></li>
           </div>
+        
+            </>
+          )
+        }
          <div className='flex gap-1 items-center'>
             <FaBook></FaBook> <li><NavLink to={'/blogs'}>Blogs</NavLink></li></div> 
+            
 
       </ul>
     </div>

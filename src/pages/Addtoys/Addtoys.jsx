@@ -1,9 +1,56 @@
+/* eslint-disable no-unused-vars */
 
-import { FaImage, FaUser, FaEnvelope, FaList, FaDollarSign, FaStar, FaPlus, FaInfo } from 'react-icons/fa';
+import { FaImage,FaCube, FaUser, FaEnvelope, FaList, FaDollarSign, FaStar, FaPlus, FaInfo } from 'react-icons/fa';
+import {useContext} from 'react'
+import { AuthContext } from '../../Authprobijder/Authprobider';
+import Swal from 'sweetalert2'
 const Addtoys = () => {
+   const {user,loaders}= useContext(AuthContext)
+
+  const addToys =(e)=>{
+     e.preventDefault()
+     const form = e.target
+     const img = form.pictureUrl.value
+     const name = form.name.value
+     const email = form.sellerEmail.value
+     const sellername = form.sellerName.value
+    const Subcategory = form.subCategory.value
+    const price = form.price.value
+    const rating = form.rating.value
+    const quantity = form.quantity.value
+    const details = form.description.value
+
+    const allToys = {img,name,email,sellername,Subcategory,price,rating,quantity,details}
+    console.log(allToys)
+
+    fetch('http://localhost:5000/toys',{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json'
+      },
+      body:JSON.stringify(allToys)
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      console.log(data)
+     if(data.insertedId){
+      Swal.fire({ position: 'top-center', icon: 'success', title: 'Toys Add successfull', showConfirmButton: false, timer: 1500 })
+     }
+      
+
+      
+    })
+
+  }
+  if(loaders){
+     return  <div className="flex justify-center items-center h-screen">
+     <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-red-500"></div>
+   </div>
+  }
+  else if(user){
     return (
         <div className="  my-10 max-w-[1000px] mx-auto">
-        <form className="w-full max-w-[800px] mx-auto">
+        <form onSubmit={addToys} className="w-full max-w-[800px] mx-auto">
         <div className=' md:gap-4 md:flex'>
           <div className="mb-4 md:w-1/2">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="pictureUrl">
@@ -20,7 +67,7 @@ const Addtoys = () => {
           </div>
           <div className="mb-4 md:w-1/2">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
-              <FaUser className="inline-block mr-2 mb-1" /> Name
+              <FaCube className="inline-block mr-2 mb-1" /> Toy Name
             </label>
             <input
               type="text"
@@ -41,6 +88,7 @@ const Addtoys = () => {
               type="text"
               id="sellerName"
               name="sellerName"
+              value={user.displayName}
                required
             placeholder="Enter seller name"
               className="w-full py-2 px-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
@@ -51,9 +99,10 @@ const Addtoys = () => {
               <FaEnvelope className="inline-block mr-2 mb-1" /> Seller Email
             </label>
             <input
-              type="text"
+              type="email"
               id="sellerEmail"
               name="sellerEmail"
+              value={user.email}
               required
               placeholder="Enter seller email"
               className="w-full py-2 px-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
@@ -109,7 +158,7 @@ const Addtoys = () => {
               <FaPlus className="inline-block mr-2 mb-1" /> Available Quantity
             </label>
             <input
-              type="text"
+              type="number"
               id="quantity"
               name="quantity"
               placeholder="Enter available quantity"
@@ -140,6 +189,7 @@ const Addtoys = () => {
       </div>
         
     );
+  }
 };
 
 export default Addtoys;
