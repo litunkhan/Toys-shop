@@ -16,6 +16,7 @@ import RegisterPage from './pages/register/RegisterPage.jsx';
 import Authprobider from './Authprobijder/Authprobider.jsx';
 import Privateroute from './Privateroute/Privateroute.jsx';
 import Singledata from './pages/Singledata/Singledata.jsx';
+import Errorpage from './Errorelement/Errorpage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -55,7 +56,12 @@ const router = createBrowserRouter([
         element:<RegisterPage></RegisterPage>
       }
     ]
+    
   },
+  {
+    path:'*',
+    element:<Errorpage></Errorpage>
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
