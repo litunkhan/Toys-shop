@@ -5,8 +5,10 @@ import animation from '../../assets/143135-login-page-animation.json'
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../Authprobijder/Authprobider';
 import { updateProfile } from 'firebase/auth';
+import useTitle from '../../Title/useTitle';
 
 const RegisterPage = () => {
+  useTitle(`Toys-Shop | | ${'register'} `)
   const [err,seterr] = useState('')
   const navigate = useNavigate()
   const {createuser} = useContext(AuthContext)

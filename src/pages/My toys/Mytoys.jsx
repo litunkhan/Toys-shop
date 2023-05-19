@@ -2,10 +2,12 @@
 import { useContext, useEffect,useState } from "react";
 import { AuthContext } from "../../Authprobijder/Authprobider";
 import Toyses from "./Toyses";
+import useTitle from "../../Title/useTitle";
 
 
 
 const Mytoys = () => {
+   useTitle(`Toys-Shop | | ${'My toys'}`)
     const {user}= useContext(AuthContext)
     const [mytoys,setmytoys] = useState([])
 

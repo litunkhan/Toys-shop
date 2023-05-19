@@ -4,7 +4,9 @@ import { FaImage,FaCube, FaUser, FaEnvelope, FaList, FaDollarSign, FaStar, FaPlu
 import {useContext} from 'react'
 import { AuthContext } from '../../Authprobijder/Authprobider';
 import Swal from 'sweetalert2'
+import useTitle from '../../Title/useTitle';
 const Addtoys = () => {
+  useTitle(`Toys-Shop || ${'Add toy'}`)
    const {user,loaders}= useContext(AuthContext)
 
   const addToys =(e)=>{

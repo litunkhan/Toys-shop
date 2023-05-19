@@ -5,8 +5,10 @@ import { Link, useNavigate,useLocation} from 'react-router-dom';
 import Lottie from "lottie-react";
 import animation from '../../assets/143135-login-page-animation.json'
 import { AuthContext } from '../../Authprobijder/Authprobider';
+import useTitle from '../../Title/useTitle';
 
 const Login = () => {
+  useTitle(`Toys-Shop | | Login`)
   const {singIn,googleLogin } = useContext(AuthContext)
   const [err,seterr] = useState('')
   const navigate = useNavigate()
