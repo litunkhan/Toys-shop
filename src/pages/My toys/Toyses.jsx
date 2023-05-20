@@ -3,13 +3,13 @@
 import React from 'react';
 import { FaEdit, FaStar } from "react-icons/fa";
 
-const Toyses = ({toyss}) => {
+const Toyses = ({toyss,handleDelete}) => {
     console.log(toyss)
     return (
         <>
            <tr>
         <th>
-          <button className='btn btn-circle'>Delete</button>
+          <button onClick={()=>handleDelete(toyss._id)} className='btn btn-circle'>Delete</button>
         </th>
         <td>
           <div className="flex items-center space-x-3">

@@ -85,7 +85,7 @@ const ReactTabs = () => {
         </TabList>
         <div className='grid md:grid-cols-3 lg:grid-cols-4'>
        {
-        toys.map(toy=>{
+        toys.slice(0,2).map(toy=>{
            return <> <Toys toy={toy} key={toy._id}></Toys></>
         })
        }

@@ -3,6 +3,7 @@ import { useContext, useEffect,useState } from "react";
 import { AuthContext } from "../../Authprobijder/Authprobider";
 import Toyses from "./Toyses";
 import useTitle from "../../Title/useTitle";
+import Swal from 'sweetalert2'
 
 
 
@@ -19,6 +20,42 @@ const Mytoys = () => {
         })
 
     },[user.email])
+    
+    
+
+    const handleDelete = (id)=>{
+        console.log(id)
+        Swal.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            fetch(`http://localhost:5000/mytoys/${id}`,{
+              method:'DELETE'
+            })
+            .then(res=> res.json())
+            .then(data=>{
+               console.log(data)
+               if(data.deletedCount>0){
+                Swal.fire(
+                  'Deleted!',
+                  'Your file has been deleted.',
+                  'success'
+                )
+                const remaindata = mytoys.filter(n=>n._id !== id)
+                setmytoys(remaindata)
+              }
+
+            })
+          }
+        })
+       
+    }
     return (
         <div className="my-10">
            <div className="overflow-x-auto w-full">
@@ -42,7 +79,7 @@ const Mytoys = () => {
       
       {
       mytoys.map(toys=>{
-         return <><Toyses toyss={toys} key={toys._id}></Toyses></>
+         return <><Toyses key={toys._id} toyss={toys} handleDelete={handleDelete}  ></Toyses></>
       })
       }
     </tbody>
