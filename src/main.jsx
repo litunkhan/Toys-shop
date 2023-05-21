@@ -40,7 +40,7 @@ const router = createBrowserRouter([
       {
           path:'/update/:id',
           element:<Update></Update>,
-          loader:({params})=> fetch(`http://localhost:5000/singledata/${params.id}`)
+          loader:({params})=> fetch(`https://asignment-server-11.vercel.app/singledata/${params.id}`)
       },
       {
         path:'/addtoys',
@@ -49,7 +49,7 @@ const router = createBrowserRouter([
       {
         path:'toy/:id',
         element: <Privateroute><Singledata></Singledata></Privateroute>,
-        loader:({params})=> fetch(`http://localhost:5000/singledata/${params.id}`)
+        loader:({params})=> fetch(`https://asignment-server-11.vercel.app/singledata/${params.id}`)
       },
       {
         path:'/blogs',

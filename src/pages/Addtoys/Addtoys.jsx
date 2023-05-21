@@ -25,7 +25,7 @@ const Addtoys = () => {
     const allToys = {img,name,email,sellername,Subcategory,price,rating,quantity,details}
     console.log(allToys)
 
-    fetch('http://localhost:5000/toys',{
+    fetch('https://asignment-server-11.vercel.app/toys',{
       method:'POST',
       headers:{
         'Content-Type':'application/json'

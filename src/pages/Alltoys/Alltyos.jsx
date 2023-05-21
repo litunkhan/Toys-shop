@@ -9,7 +9,7 @@ const Alltyos = () => {
     const [alltoys,setalltoy] = useState([])
     const [serach,setsearch] = useState('')
     useEffect(()=>{
-        fetch('http://localhost:5000/alltoys')
+        fetch('https://asignment-server-11.vercel.app/alltoys')
         .then(res=>res.json())
         .then(data=>{
             console.log(data)

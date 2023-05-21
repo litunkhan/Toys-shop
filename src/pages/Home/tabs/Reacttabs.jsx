@@ -14,7 +14,7 @@ const ReactTabs = () => {
   const [category, setCategory] = useState('science kits');
 
   useEffect(() => {
-    fetch(`http://localhost:5000/toys/${category}`)
+    fetch(`https://asignment-server-11.vercel.app/toys/${category}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data)

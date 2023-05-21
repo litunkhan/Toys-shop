@@ -13,7 +13,7 @@ const Mytoys = () => {
     const [mytoys,setmytoys] = useState([])
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/mytoys?email=${user.email}`)
+        fetch(`https://asignment-server-11.vercel.app/mytoys?email=${user.email}`)
         .then(res=>res.json())
         .then(data=>{
             setmytoys(data)
@@ -35,7 +35,7 @@ const Mytoys = () => {
           confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
           if (result.isConfirmed) {
-            fetch(`http://localhost:5000/mytoys/${id}`,{
+            fetch(`https://asignment-server-11.vercel.app/mytoys/${id}`,{
               method:'DELETE'
             })
             .then(res=> res.json())
@@ -73,7 +73,7 @@ const Mytoys = () => {
     //   }
     // };
     const handleAscendingClick = (text) => {
-     fetch(`http://localhost:5000/sorting?sort=${text}&email=${user.email}`)
+     fetch(`https://asignment-server-11.vercel.app/sorting?sort=${text}&email=${user.email}`)
      .then(res=>res.json())
       .then(data=>{
         setmytoys(data)
@@ -81,7 +81,7 @@ const Mytoys = () => {
     };
 
     const handleDescendingClick = (text) => {
-      fetch(`http://localhost:5000/sorting?sort=${text}&email=${user.email}`)
+      fetch(`https://asignment-server-11.vercel.app/sorting?sort=${text}&email=${user.email}`)
       .then(res=>res.json())
       .then(data=>{
         setmytoys(data)
@@ -93,8 +93,8 @@ const Mytoys = () => {
     return (
         <div className="my-10">
           <div className="flex gap-3 my-8">
-            <button onClick={()=>handleAscendingClick('asending')} className="btn btn-outline btn-secondary">asending</button>
-            <button onClick={()=>handleDescendingClick('desending')} className="btn btn-outline btn-primary">desending</button>
+            <button onClick={()=>handleAscendingClick('asending')} className="btn btn-outline btn-secondary">desending</button>
+            <button onClick={()=>handleDescendingClick('desending')} className="btn btn-outline btn-primary">asending</button>
 
           </div>
            <div className="overflow-x-auto w-full">
