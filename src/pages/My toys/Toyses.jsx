@@ -2,6 +2,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { FaEdit, FaStar } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const Toyses = ({toyss,handleDelete}) => {
     console.log(toyss)
@@ -33,7 +34,7 @@ const Toyses = ({toyss,handleDelete}) => {
         <td>{toyss.Subcategory}</td>
         <td>{toyss.details}</td>
         <th>
-          <button className="btn btn-ghost btn-xs"><FaEdit className='text-2xl'></FaEdit></button>
+         <Link to={`/update/${toyss._id}`}> <button className="btn btn-ghost btn-xs"><FaEdit className='text-2xl'></FaEdit></button></Link>
         </th>
       </tr> 
         </>

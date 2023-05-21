@@ -17,6 +17,7 @@ import Authprobider from './Authprobijder/Authprobider.jsx';
 import Privateroute from './Privateroute/Privateroute.jsx';
 import Singledata from './pages/Singledata/Singledata.jsx';
 import Errorpage from './Errorelement/Errorpage.jsx';
+import Update from './pages/updateform/Update.jsx';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,11 @@ const router = createBrowserRouter([
       {
         path:'/mytoys',
         element:<Privateroute><Mytoys></Mytoys></Privateroute>
+      },
+      {
+          path:'/update/:id',
+          element:<Update></Update>,
+          loader:({params})=> fetch(`http://localhost:5000/singledata/${params.id}`)
       },
       {
         path:'/addtoys',
