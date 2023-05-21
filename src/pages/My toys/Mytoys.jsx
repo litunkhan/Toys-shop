@@ -58,8 +58,8 @@ const Mytoys = () => {
 
       
     }
-
-    // const fetchData = async (sortType) => {
+// done
+    // const fetchData = async 
     //   try {
     //     const response = await fetch(`/sorting?sort=${sortType}&email=${user.email}`);
     //     if (response.ok) {
