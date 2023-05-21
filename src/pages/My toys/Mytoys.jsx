@@ -54,10 +54,49 @@ const Mytoys = () => {
             })
           }
         })
-       
+
+
+      
     }
+
+    // const fetchData = async (sortType) => {
+    //   try {
+    //     const response = await fetch(`/sorting?sort=${sortType}&email=${user.email}`);
+    //     if (response.ok) {
+    //       const data = await response.json();
+    //       setmytoys(data);
+    //     } else {
+    //       console.error(`HTTP error! Status: ${response.status}`);
+    //     }
+    //   } catch (error) {
+    //     console.error(error);
+    //   }
+    // };
+    const handleAscendingClick = (text) => {
+     fetch(`http://localhost:5000/sorting?sort=${text}&email=${user.email}`)
+     .then(res=>res.json())
+      .then(data=>{
+        setmytoys(data)
+      })
+    };
+
+    const handleDescendingClick = (text) => {
+      fetch(`http://localhost:5000/sorting?sort=${text}&email=${user.email}`)
+      .then(res=>res.json())
+      .then(data=>{
+        setmytoys(data)
+
+      })
+    };
+  
+    // http://localhost:5000/sorting?email=litunkhan1@gmail.com
     return (
         <div className="my-10">
+          <div className="flex gap-3 my-8">
+            <button onClick={()=>handleAscendingClick('asending')} className="btn btn-outline btn-secondary">asending</button>
+            <button onClick={()=>handleDescendingClick('desending')} className="btn btn-outline btn-primary">desending</button>
+
+          </div>
            <div className="overflow-x-auto w-full">
   <table className="table w-full">
     {/* head */}
