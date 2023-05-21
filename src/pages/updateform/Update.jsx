@@ -12,7 +12,7 @@ const Update = () => {
         const quantity = form.quantity.value
         const details = form.description.value
        const updatedUser = {price,quantity,details}
-        fetch(`http://localhost:5000/singledata/${datas._id}`,{
+        fetch(`https://asignment-server-11.vercel.app/singledata/${datas._id}`,{
           method:'PUT',
           headers:{
             'Content-Type':'application/json'
