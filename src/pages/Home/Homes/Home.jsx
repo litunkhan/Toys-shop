@@ -7,6 +7,9 @@ import Reacttabs from "../tabs/Reacttabs";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import useTitle from "../../../Title/useTitle";
+import OurBabys from "../our-customers/OurBabys";
+import Category from "../category/Category";
+import Wedo from "../Whatwedo/Wedo";
 
 
 const Home = () => {
@@ -18,9 +21,12 @@ const Home = () => {
         <div>
             <div data-aos="zoom-in-right" ><Banner></Banner></div> 
            <div data-aos="zoom-in"><Gallery></Gallery></div> 
+           <Category></Category>
             <Reacttabs></Reacttabs>
             <Clients></Clients>
            <Offsell></Offsell>
+           <Wedo></Wedo>
+           <OurBabys></OurBabys>
         </div>
     );
 };

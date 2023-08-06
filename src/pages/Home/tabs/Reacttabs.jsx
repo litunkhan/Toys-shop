@@ -26,10 +26,10 @@ const ReactTabs = () => {
   
 
   return (
-    <div className="my-14">
+    <div className="my-14 ">
       <Tabs>
         <TabList>
-          <Tab onClick={() => setCategory('science kits')}>Science Kits</Tab>
+          <Tab  onClick={() => setCategory('science kits')}>Science Kits</Tab>
           <Tab onClick={() => setCategory('engineering kits')}>Engineering Kits</Tab>
           <Tab onClick={() => setCategory('math learning toys')}>Math Learning Toys</Tab>
         </TabList>
